@@ -18,7 +18,7 @@ const WalletList: React.FC = () => {
     return (
       <div className="container">
         {chunks.map(chunk => (
-          <div className="row my-4" key={`${chunk[0].id}_${chunk[1].id}`}>
+          <div className="row my-4" key={`${chunk[0].id}`}>
             <div className="col">
               {chunk[0] && (
                 <NavLink to={`/wallets/${chunk[0].id}`}>

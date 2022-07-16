@@ -59,7 +59,7 @@ const SignUpForm: React.FC = () => {
         <label>Пароль</label>
         <input
           {...register('password')}
-          placeholder="Password"
+          placeholder="Пароль"
           className="form-control form-control-lg"
           type="password" />
       </div>
@@ -67,7 +67,7 @@ const SignUpForm: React.FC = () => {
         <label>Повторить пароль</label>
         <input
           {...register('repassword')}
-          placeholder="Password"
+          placeholder="Пароль"
           className="form-control form-control-lg"
           type="password" />
       </div>
