@@ -15,7 +15,7 @@ const baseQuery = fetchBaseQuery({
     const token = Storage.getToken()
 
     if (token) {
-      headers.set(Config.HeaderToken, token)
+      headers.set('authorization', 'bearer '+token)
     }
 
     return headers

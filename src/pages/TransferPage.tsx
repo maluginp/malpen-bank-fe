@@ -1,7 +1,8 @@
 import AccountDetails from "../components/AccountDetails";
 import SidebarProtectedPageWrapper from "../components/SidebarProtectedPageWrapper";
 import TransactionList from "../components/TransactionList";
-import TransferForm from "../components/TransferForm";
+import InternalTransferForm from "../components/InternalTransferForm";
+import ExternalTransferForm from "../components/ExternalTransferForm";
 
 const TransferPage: React.FC = () => {
   return (
@@ -9,7 +10,10 @@ const TransferPage: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-8 py-lg-2 px-lg-5">
-            <TransferForm />
+            <InternalTransferForm />
+
+            <h2>External</h2>
+            <ExternalTransferForm />
           </div>
           <div className="col-4 py-lg-4 px-lg-2">
             <AccountDetails />

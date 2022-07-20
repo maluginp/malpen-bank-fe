@@ -7,9 +7,16 @@ export const TransferApi = createApi({
     reducerPath: 'TransferApi',
     baseQuery: baseQueryWithAccessToken,
     endpoints: (build) => ({
-        send: build.mutation<ITransaction, ITransferFund>({
+        sendInternal: build.mutation<ITransaction, ITransferFund>({
             query: ({...body}) => ({
-                url: '/transfer',
+                url: '/transfer/internal',
+                method: 'POST',
+                body
+            })
+        }),
+        sendExternal: build.mutation<ITransaction, ITransferFund>({
+            query: ({...body}) => ({
+                url: '/transfer/external',
                 method: 'POST',
                 body
             })

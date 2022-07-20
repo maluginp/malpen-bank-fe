@@ -10,9 +10,9 @@ const Sidebar: React.FC = () => {
     <div className="sidebar">
       <div className="sidebar-start">
         <div className="sidebar-head">
-          <a href="/main" className="logo-wrapper logo-text" title="Home">
+          <NavLink to="/main" className="logo-wrapper logo-text" title="Home">
             <div className="logo-title">Malpen</div>
-          </a>
+          </NavLink>
         </div>
         <div className="sidebar-body">
           <ul className="sidebar-body-menu">
@@ -26,7 +26,7 @@ const Sidebar: React.FC = () => {
         <NavLink to="/profile" className="sidebar-user">
           <div className="sidebar-user-info">
             <span className="sidebar-user__title">Пользователь</span>
-            <span className="sidebar-user__subtitle">{profile.email}</span>
+            <span className="sidebar-user__subtitle">{profile.nickname}</span>
           </div>
         </NavLink>
       </div>

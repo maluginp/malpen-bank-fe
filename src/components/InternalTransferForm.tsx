@@ -19,14 +19,14 @@ const schema = yup.object().shape({
   amount: yup.number().required(),
 });
 
-const TransferForm: React.FC = () => {
+const InternalTransferForm: React.FC = () => {
   const {
     data: wallets
   } = WalletApi.useFetchAllQuery()
 
   const [transferFunds, {
     isSuccess
-  }] = TransferApi.useSendMutation()
+  }] = TransferApi.useSendInternalMutation()
 
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>({
     mode: 'onBlur',
@@ -106,4 +106,4 @@ const TransferForm: React.FC = () => {
   }
 }
 
-export default TransferForm
+export default InternalTransferForm

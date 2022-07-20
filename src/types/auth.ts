@@ -6,6 +6,7 @@ export interface ISignInQuery {
 export interface ISignUpQuery {
     email: string,
     password: string,
+    nickname: string,
 }
 
 export interface ISignUpResponse {

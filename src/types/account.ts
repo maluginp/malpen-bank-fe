@@ -5,4 +5,5 @@ export interface IAccountBalance {
 export interface IProfile {
     id: number
     email: string
+    nickname: string
 }

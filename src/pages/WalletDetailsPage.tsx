@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import AccountDetails from "../components/AccountDetails";
 import SidebarProtectedPageWrapper from "../components/SidebarProtectedPageWrapper";
-import TransactionList from "../components/TransactionList";
 import WalletDetails from "../components/WalletDetails";
 import { WalletApi } from "../services/WalletService";
 
@@ -31,9 +30,9 @@ const WalletDetailsPage: React.FC = () => {
                         {data && (
                             <>
                                 <WalletDetails wallet={data} />
-                                <p></p>
+                                {/* <p></p>
                                 <h2>Транзакции</h2>
-                                <TransactionList walletId={data.id} />
+                                <TransactionList walletId={data.id} /> */}
                             </>
                         )}
 

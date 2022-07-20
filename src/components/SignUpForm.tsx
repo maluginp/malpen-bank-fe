@@ -2,22 +2,27 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AuthApi } from "../services/AuthService";
-import Storage from '../store/Storage'
-import { useNavigate } from "react-router-dom";
 import { setToken } from "../store/reducers/tokenReducer";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 
 type Inputs = {
   email: string,
   password: string,
-  repassword: string
+  repassword: string,
+  nickname: string,
 };
 
 const schema = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
   repassword: yup.string().required()
-    .oneOf([yup.ref('password'), null], 'Пароль должны совпадать')
+    .oneOf([yup.ref('password'), null], 'Пароль должны совпадать'),
+  nickname: yup.string()
+    .required()
+    .min(3, 'Никнейм не может быть меньше 3 символов')
+    .max(50, 'Никнейм не может быть больше 50 символов')
+    .matches(/[a-zA-Z0-9]/, "Разрешенны только символы на латинице и цифры")
+    ,  
 });
 
 const SignUpForm: React.FC = () => {
@@ -33,6 +38,7 @@ const SignUpForm: React.FC = () => {
     const auth = await signUp({
       email: data.email,
       password: data.password,
+      nickname: data.nickname,
     }).unwrap()
 
     dispatch(setToken(auth.token))
@@ -45,6 +51,15 @@ const SignUpForm: React.FC = () => {
         <h1 className="h3 mb-3 font-weight-normal">Malpen Payment System</h1>
         <p>Регистрация в платежной системе Malpen</p>
         <p><strong>Сайт работает в тестовом режиме</strong></p>
+      </div>
+      <div className="form-label-group py-2">
+        <label htmlFor="inputNickname">Никнейм</label>
+        <input
+          {...register('nickname')}
+          placeholder="Никнейм"
+          className="form-control form-control-lg"
+          id="inputNickname"
+          type="text" />
       </div>
       <div className="form-label-group py-2">
         <label htmlFor="inputEmail">Email</label>
